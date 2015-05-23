@@ -1,0 +1,113 @@
+html, body {
+      margin: 0;
+      padding: 0;
+      background-image:url(bg.png);
+      font-family: Arial, Helvetica, sans-serif;
+      }
+#navContent{
+      margin:auto;
+      width:800px;
+      height:400px;
+      position:relative;
+      overflow:hidden;
+      }
+#game1{
+      margin:auto;
+      width:800px;
+      height:400px;
+      right:0px;
+      position:absolute;
+      }
+#game2{
+      margin:auto;
+      width:800px;
+      height:400px;
+      right:-800px;
+      position:absolute;
+      }
+.questionText{
+      font-size:18px;
+      color:#FFF;
+      }
+.option{
+      width:80%;
+      height:30px;
+      margin:15px;
+      font-size:18px;
+      color:#FFFFFF;
+      padding:2px;
+      padding-left:10px;
+      border: 5px solid white;
+      cursor:pointer;
+      background-color:#3399FF;
+      }
+.option:hover{
+      border:#FC0 solid 5px;
+      color:#FC0;
+      }
+#topbar{
+      height:50px;
+      margin:auto;
+      margin-top:50px;
+      color:#FFF;
+      font-size:36px;
+      font-family:Arial, Helvetica, sans-serif;
+      width:800px;
+      }
+#gameEnd,#pressExit,#yourScore{
+      margin:auto;
+      margin-top:50px;
+      color:#FFF;
+      font-size:36px;
+      font-family:Arial, Helvetica, sans-serif;
+      width:800px;
+      }
+#text{
+        margin:auto;
+      margin-top:50px;
+      color:#FFF;
+      font-size:30px;
+      font-family:Arial, Helvetica, sans-serif;
+      width:500px;
+      }
+#text,#text2,#text3,#text4{ 
+   
+      color:#FFF;
+      font-size:20px;
+      font-family:Arial, Helvetica, sans-serif;
+      width:500px;
+      }
+
+.spacer{
+      height:30px;
+      }
+.Correct{
+      width:150px;
+      padding:5px;
+      font-size:30px;
+      color:#FFFFCC;
+      background-color:#009900;
+      font-family:Montserrat,Arial, Helvetica, sans-serif;
+      text-align:center;
+      }
+.Score{
+      width:95px;
+      padding:5px;
+      font-size:30px;
+      color:#FFFFCC;
+      background-color:#009900;
+      font-family:Montserrat,Arial, Helvetica, sans-serif;
+      text-align:center;
+      }
+           
+.Wrong{
+      width:150px;
+      padding:5px;
+      font-size:30px;
+      color:#FFFFCC;
+      background-color:#CC3300;
+      font-family:Arial, Helvetica, sans-serif;
+      text-align:center;
+      }
+#inner{ opacity: 0.9 };
+

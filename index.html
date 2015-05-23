@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+      <head>
+     	<title>QUIZ GAME</title>
+		<!--<meta name="viewport" content="width=480px, initial-scale=1">-->
+		<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, initial-scale=0, maximum-scale=1, user-scalable=yes" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+      	<link href="main.css" rel="stylesheet" type="text/css"/>
+      	<script src="jquery.js"></script>
+      	<script src="logic.js"></script>
+		
+		<script>
+			var seconds = 60;
+			var correctOpt;
+			var sound;
+			var av50 = true;
+			var avPhone = true;
+			var isSound = true;
+			
+			function secondPassed() 
+			{
+				var remainingSeconds = seconds % 60;
+				if (remainingSeconds < 10) 
+				{
+					document.getElementById('countdown').style.color = "red";
+					remainingSeconds = "0" + remainingSeconds;  
+				}
+				else
+				{
+					document.getElementById('countdown').style.color = "green";
+				}
+				document.getElementById('countdown').innerHTML = remainingSeconds;
+				if (seconds == 0) 
+				{
+					clearInterval(countdownTimer);
+					document.getElementById('countdown').innerHTML = "Time is up";
+				} else {
+					seconds--;
+				}
+			}
+			var countdownTimer = setInterval('secondPassed()', 1000);
+			
+			
+				function soundOption(img) 
+				{
+					if  (isSound)
+					{
+						document.getElementById("sound").src = "options/mute.png";
+					//	document.getElementById("sound").id = "nsound";s
+						isSound = false;
+						sound.stop();
+					}
+					else 
+					{
+						document.getElementById("sound").src = "options/sound.png";
+						document.getElementById("sound").id = "sound";
+						isSound = true;
+						sound.start();
+					}
+				}
+				function lifelinePhone(img) 
+				{
+					if  (img.id == "lifeline2")
+					{
+						if(avPhone)
+						{
+							document.getElementById('phoneImage').src = "options/nphone.png";
+							avPhone = false;
+						}
+					}
+				}
+				function lifeline50(img) 
+				{
+					if  (img.id == "lifeline1")
+					{
+						if(av50)
+						{
+							av50 = false;
+							document.getElementById("lifeline1").src = "options/n50.png";
+							if(correctOpt == 1 || correctOpt == 2)
+								document.getElementById('3').style.display = 'none';
+							else
+								document.getElementById('1').style.display = 'none';
+						}
+					}
+				}
+			</script>
+
+      </head>
+      <body>
+	  
+	  <div data-role="page" id="pageone"  style="height: 100%; width: 100%; background-color:black;">
+	  <div style="background-image: url(options/giphy2.gif);height: 100%; width: 100%; "><br><br><br><br><br><br><br><br><br><br>
+	  <div id="inner" style="width:800px; margin:0 auto;">
+		<div data-role="header" align="middle">
+			QUIZ APP
+		</div>
+	
+		<div  class="ui-content" >
+			<ul data-role="listview">
+				<li>
+					<a href="#start"  id="startButton"  >Start</a>
+				</li>
+				<li>
+					 <a href="#instructionPage">Instructions</a>
+				</li>
+				<li>
+					 <a href="#quit">Quit</a>
+				</li>
+			</ul>
+		</div>
+
+		 <div data-role="footer">
+			<h1>All rights reserved.</h1>
+		 </div>
+		</div>
+		</div>
+	</div> 
+	
+	<div data-role="page" id="start" style="background-image: url(bg.png); height: 100%; width: 100%;">
+      	<div id="topbar">QUIZ GAME</div><div  id="score1" style="position:absolute; top:59px; left: 845px; "></div>
+		<div class="spacer"></div>
+		<div id="navContent">
+		<span id="countdown" class="timer" align="center" style="color:white ; font-size: 200%" ></span>
+			
+			<div id="game1"></div>
+			<div id="game2"></div>
+			
+		</div>
+		<div align="center">
+				<img src="options/50.png" id="lifeline1" onclick="lifeline50(this)" />
+				<a href="tel:+496170961709" id="lifeline2" onclick="lifelinePhone(this)"><img id ="phoneImage" src="options/phone.png"/></a>
+				<img src="options/sound.png" id="sound" onclick="soundOption(this)" />
+				<a href="#pageone"><img src="options/quit.png"/></a>
+			</div>
+	</div >
+	
+	<div  data-role="page" id="endPage" style="background-image: url(bg.png); height: 100%; width: 100%;">
+		<div id="topbar">QUIZ GAME</div>
+		<div class="spacer"></div>
+		
+		<div id="endInner" align="center">
+		<label id="gameEnd" >GAME ENDED</label>
+		<p id="yourScore"></p>
+		<label  id="pressExit">Press Exit Button</label>		
+		<a href="#pageone"><img src="options/quit.png"/></a>
+	</div>
+	</div>
+	
+	<div data-role="page" id="instructionPage" style="background-image: url(bg.png); height: 100%; width: 100%;">
+		<div id="topbar">QUIZ GAME</div>
+		<div class="spacer"></div>
+		
+		<p id="text" align="center" >You Have only 2 LifeLines, Use them wisely</p><br><br>
+		<div id="instructionInner" align="left">		
+		<img id="image1"src="options/50.png" style="width:70px;height:70px" /><p id="text2" style="position:absolute; top:273px; left: 80px; " >Use this button to deduct one question.</p><br><br>
+		<img id="image2"src="options/phone.png" style="width:70px;height:70px;"/><p id="text3" style="position:absolute; top:369px; left: 80px;" >Use this lifeLine to call a friend for help.</p><br><br>
+		<img src="options/quit.png"/><p id="text4" style="position:absolute; top:458px; left: 80px;" >Press this button to return to main menu.</p>
+		</div>
+	</div>
+	
+      </body>
+</html>
